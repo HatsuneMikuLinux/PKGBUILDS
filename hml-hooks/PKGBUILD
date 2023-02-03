@@ -48,7 +48,7 @@ sha512sums=('4862d4cadfb9d993aba39f6235ddd2a199ba59e8990809106f8f4faaa57ec708cdf
 
 '9c5514a443c76d7b905c834cd97ecee2dc14d9d34f614a03df7fe813774fa850f358e26f3cbf65a5c75ccabbf05a891e795fef0c1f554d507a9196d2f687dee9'
 
-cc2ec726d9a1fb6f66cba32f545a7bc34d656fd31503bf097ff8915f0d9e8e5a058fa50a60d11b6d77b2e0b1f06dcb80fedc77dd3e1a4a87a2cce59424d92769')
+'cc2ec726d9a1fb6f66cba32f545a7bc34d656fd31503bf097ff8915f0d9e8e5a058fa50a60d11b6d77b2e0b1f06dcb80fedc77dd3e1a4a87a2cce59424d92769')
 
 package() {
   local hooks=$pkgdir/usr/share/libalpm/hooks
@@ -71,4 +71,5 @@ package() {
   install -Dm755 hml-reboot-required       $bin/hml-reboot-required
   install -Dm755 hml-reboot-required2      $bin/hml-reboot-required2
   install -Dm755 ${pkgname}-runner         $bin/${pkgname}-runner
+
 }
