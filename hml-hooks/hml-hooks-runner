@@ -23,7 +23,7 @@ Os_release() {
     sed -i $file \
         -e 's|^NAME=.*$|NAME=\"Hatsune Miku Linux\"|' \
         -e 's|^PRETTY_NAME=.*$|PRETTY_NAME=\"Hatsune Miku Linux\"|' \
-        -e "s|^LOGO=.*$|LOGO=hml|" \
+        -e "s|^LOGO=.*$|LOGO=hml-logo|" \
         -e "s|^ID=.*$|ID=hml|" \
         -e "s|^ID_LIKE=.*$|ID_LIKE=arch|"
 
