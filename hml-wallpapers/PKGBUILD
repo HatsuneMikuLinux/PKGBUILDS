@@ -1,13 +1,13 @@
 # Maintainer: Alexander F. Rødseth <xyproto@archlinux.org>
 
 pkgname=hml-wallpapers
-pkgver=1.0
+pkgver=1.1
 pkgrel=1
 pkgdesc='Hatsune Miku Linux Wallpapers'
 arch=(any)
 license=(custom:CC0 custom:SPL)
-source=("https://github.com/HatsuneMikuLinux/$pkgname/releases/download/$pkgver/$pkgname-$pkgver.tar.gz")
-sha256sums=('ce55e0f61c0cebd6d4d45cb55b048f9383648cdbe657ef627b7eaf3fef58cd00')
+source=("https://github.com/HatsuneMikuLinux/$pkgname/archive/refs/tags/$pkgver.tar.gz")
+sha256sums=('c1ad1857422747b02fa1144fb21d9e3427866c733beb5b1b3f89727f3226c70f')
 
 package() {
   cd "$pkgname-$pkgver"
