@@ -1,17 +1,16 @@
 # Maintainer: Alexander F. Rødseth <xyproto@archlinux.org>
 
-pkgname=archlinux-wallpaper
+pkgname=hml-wallpapers
 pkgver=1.0
-pkgrel=2
-pkgdesc='Arch Linux Wallpapers'
+pkgrel=1
+pkgdesc='Hatsune Miku Linux Wallpapers'
 arch=(any)
 license=(custom:CC0 custom:SPL)
-source=("https://github.com/xyproto/$pkgname/releases/download/$pkgver/$pkgname-$pkgver.tar.gz")
-sha256sums=('eb50f5ff9724a00b4bd0f04d14127a621be4244d5f6065097283246684c084c0')
+source=("https://github.com/HatsuneMikuLinux/$pkgname/releases/download/$pkgver/$pkgname-$pkgver.tar.gz")
+sha256sums=('ce55e0f61c0cebd6d4d45cb55b048f9383648cdbe657ef627b7eaf3fef58cd00')
 
 package() {
   cd "$pkgname-$pkgver"
-  install -Dm644 -t "$pkgdir/usr/share/backgrounds/hml/" img/*
+  install -Dm644 -t "$pkgdir/usr/share/backgrounds/hml-wall/" img/*
   install -Dm644 -t "$pkgdir/usr/share/gnome-background-properties/" hml-backgrounds.xml
-  install -Dm644 -t "$pkgdir/usr/share/licenses/$pkgname/" LICENSE.md
 }
