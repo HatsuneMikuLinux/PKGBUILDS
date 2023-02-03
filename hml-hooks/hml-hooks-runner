@@ -10,7 +10,7 @@ Lsb_release() {
         echo "DISTRIB_CODENAME=rolling" >> $file
     fi
     sed -i $file \
-        -e 's|^DISTRIB_ID=.*$|DISTRIB_ID=HatsuneMikuLinux|' \
+        -e 's|^DISTRIB_ID=.*$|DISTRIB_ID=hml|' \
         -e 's|^DISTRIB_CODENAME=.*$|DISTRIB_CODENAME=rolling|' \
         -e 's|^DISTRIB_DESCRIPTION=.*$|DISTRIB_DESCRIPTION=\"Hatsune Miku Linux\"|'
 }
@@ -40,6 +40,22 @@ Os_release() {
 
 Issues() {
     sed -i 's|Arch|Hatsune\ Miku|g' /etc/issue /usr/share/factory/etc/issue
+}
+
+Pixmaps() {
+	## Remove Arch Linux artworks
+	imgs=('archlinux-logo.png'
+		  'archlinux-logo.svg'
+		  'archlinux-logo-text.svg'
+		  'archlinux-logo-text-dark.svg'
+		  'archlinux.png'
+		  'archlinux.svg')
+	
+	for img in "${imgs[@]}"; do
+		if [[ -e /usr/share/pixmaps/"$img" ]]; then 
+			rm -rf /usr/share/pixmaps/"$img"
+		fi
+	done	
 }
 
 Main()

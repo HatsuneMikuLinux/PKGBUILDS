@@ -13,6 +13,7 @@ depends=(libnotify)
 source=(
   $_url/hml-os-release.hook
   $_url/hml-lsb-release.hook
+  $_url/hml-pixmaps.hook
   $_url/${pkgname}.hook
   $_url/${pkgname}-runner
   $_url/hml-reboot-required2
@@ -36,18 +37,21 @@ sha512sums=('d315c86c3f18278883161798b1f8ec891d20efb0bf2ada4dbf406a30767506807c4
 
 package() {
   local hooks=$pkgdir/usr/share/libalpm/hooks
+  local pixmaps=${pkgdir}/usr/share/pixmaps
   local bin=$pkgdir/usr/bin
 
   install -Dm644 hml-lsb-release.hook      $hooks/hml-lsb-release.hook
   install -Dm644 hml-os-release.hook       $hooks/hml-os-release.hook
+  install -Dm644 hml-lsb-release.hook      $hooks/hml-pixmaps.hook
   install -Dm644 ${pkgname}.hook           $hooks/${pkgname}.hook
   install -Dm644 hml-reboot-required.hook  $hooks/hml-reboot-required.hook
-
+  install -Dm755 hml-logo.png       		"$pixmaps"/hml-logo.png
+  install -Dm755 hml-logo.svg       		"$pixmaps"/hml-logo.svg
   install -Dm755 hml-reboot-required       $bin/hml-reboot-required
   install -Dm755 hml-reboot-required2      $bin/hml-reboot-required2
   install -Dm755 ${pkgname}-runner         $bin/${pkgname}-runner
 
   # Planned to be removed near the end of year 2023:
-  install -Dm755 hml-repo-before-arch-repos      $pkgdir/usr/bin/hml-repo-before-arch-repos
-  install -Dm644 hml-repo-before-arch-repos.hook $pkgdir/usr/share/libalpm/hooks/hml-repo-before-arch-repos.hook
+  #install -Dm755 hml-repo-before-arch-repos      $pkgdir/usr/bin/hml-repo-before-arch-repos
+  #install -Dm644 hml-repo-before-arch-repos.hook $pkgdir/usr/share/libalpm/hooks/hml-repo-before-arch-repos.hook
 }

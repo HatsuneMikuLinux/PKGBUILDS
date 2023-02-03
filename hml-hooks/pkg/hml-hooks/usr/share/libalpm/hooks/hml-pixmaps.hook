@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = lsb-release
+
+[Action]
+Description = Add Hatsune Miku Linux specific config.
+When = PostTransaction
+Exec = /usr/bin/hml-hooks-runner lsb-release

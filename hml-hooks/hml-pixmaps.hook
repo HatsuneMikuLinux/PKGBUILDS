@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = filesystem
+
+[Action]
+Description = Updating Hatsune Miku Linux Pixmaps...
+When = PostTransaction
+Exec = /usr/bin/hml-hooks-runner pixmaps
