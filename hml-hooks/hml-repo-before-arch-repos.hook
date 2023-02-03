@@ -5,6 +5,6 @@ Type = Package
 Target = hml-hooks
 
 [Action]
-Description = Move the EndeavourOS repo before Arch repos in /etc/pacman.conf (only once)
+Description = Move the Hatsune Miku Linux repo before Arch repos in /etc/pacman.conf (only once)
 When = PostTransaction
 Exec = /usr/bin/hml-repo-before-arch-repos

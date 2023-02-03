@@ -17,7 +17,7 @@ DIE() {
 }
 
 Main() {
-    # Move the [endeavouros] repo before Arch repos in /etc/pacman.conf.
+    # Move the [hmlinux] repo before Arch repos in /etc/pacman.conf.
 
     local progname=hml-repo-before-arch-repos
 
@@ -53,18 +53,18 @@ Main() {
             testing|core|extra|community-testing|community|multilib-testing|multilib|kde-unstable)
                 [ -z "$first_arch_repo" ] && first_arch_repo="$xx"
                 ;;
-            endeavouros)
+            hmlinux)
                 hml_found=yes
                 if [ -z "$first_arch_repo" ] ; then
-                    hml_is_before_arch=yes                 # [endeavouros] is already before Arch repos in '$conf'
+                    hml_is_before_arch=yes                 # [hmlinux] is already before Arch repos in '$conf'
                 fi
                 ;;
         esac
     done
-    [ "$hml_found" = "no" ]     && DIE "repo [endeavouros] was not found in '$conf'."
+    [ "$hml_found" = "no" ]     && DIE "repo [hmlinux] was not found in '$conf'."
     [ -z "$first_arch_repo" ]   && DIE "no Arch repos found!"
 
-    # Adding the [endeavouros] repo before Arch repos.
+    # Adding the [hmlinux] repo before Arch repos.
 
     local file line ix=0 count in_hml=no
     local current_hml_definition=()
@@ -73,11 +73,11 @@ Main() {
     count=${#file[@]}
 
     if [ "$hml_is_before_arch" = "no" ] ; then
-        # Comment out existing endeavouros repo definition.
+        # Comment out existing hmlinux repo definition.
         for ((ix=0; ix < count; ix++)) ; do
             line=${file[$ix]}
             case "$line" in
-                "[endeavouros]")
+                "[hmlinux]")
                     in_hml=yes
                     current_hml_definition=("$line")
                     file[$ix]="# $line"
@@ -114,10 +114,10 @@ Main() {
             
             Output > $tmpfile
             sudo bash -c "cp $conf '$bak' && cp $tmpfile $conf && rm $tmpfile && touch $remember_me_file"
-            printf2 "==> $conf:\n    - [endeavouros] repo moved in front of Arch repos\n    - old file copied to '$bak'\n"
+            printf2 "==> $conf:\n    - [hmlinux] repo moved in front of Arch repos\n    - old file copied to '$bak'\n"
         else
             touch $remember_me_file
-            echo2 "==> $conf: [endeavouros] repo is already before Arch repos."
+            echo2 "==> $conf: [hmlinux] repo is already before Arch repos."
         fi
     else
         Output
@@ -125,7 +125,7 @@ Main() {
 }
 
 Output() {
-    # Add endeavouros repo before Arch repos.
+    # Add hmlinux repo before Arch repos.
     # Write the modified file into standard output.
 
     for ((ix=0; ix < count; ix++)) ; do

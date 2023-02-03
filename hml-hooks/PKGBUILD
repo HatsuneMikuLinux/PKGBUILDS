@@ -6,8 +6,8 @@ pkgrel=1
 pkgdesc='Hatsune Miku Linux pacman hooks'
 arch=('any')
 license=('GPL3')
-url=https://github.com/endeavouros-team/PKGBUILDS/tree/master/$pkgname
-_url=https://raw.githubusercontent.com/endeavouros-team/PKGBUILDS/master/$pkgname
+url=https://github.com/HatsuneMikuLinux/PKGBUILDS/tree/master/$pkgname
+_url=https://raw.githubusercontent.com/HatsuneMikuLinux/PKGBUILDS/master/$pkgname
 depends=(libnotify)
 
 source=(
