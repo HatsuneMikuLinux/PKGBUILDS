@@ -1,0 +1,29 @@
+# Maintainer: LordDemecrius83 <lorddemecrius83@proton.me>
+# Contributor: Andrey Vihrov <andrey.vihrov at gmail.com>
+
+pkgname=hml-sbupdate-git
+pkgver=0.r113.4e6d106
+pkgrel=1
+pkgdesc="Generate and sign kernel images for UEFI Secure Boot"
+arch=('any')
+url="https://github.com/HatsuneMikuLinux/sbupdate"
+license=('GPL3')
+install=sbupdate.install
+depends=('bash>=4.4' 'systemd' 'binutils' 'sbsigntools')
+makedepends=('git')
+conflicts=('sbupdate' 'sbupdate-git')
+provides=('sbupdate')
+backup=('etc/sbupdate.conf')
+source=("git+https://github.com/HatsuneMikuLinux/sbupdate.git?signed")
+validpgpkeys=('29E1A5CDBB0195CEF535607A8F2F0826AC92D650')
+sha256sums=('SKIP')
+
+pkgver() {
+  cd sbupdate
+  printf "0.r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd sbupdate
+  make DESTDIR="${pkgdir}" DOCDIR="/usr/share/doc/${pkgname}" install
+}
