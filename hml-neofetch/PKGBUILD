@@ -1,0 +1,22 @@
+# Maintainer: LordDemecrius83 <lorddemecrius83@proton.me>
+
+pkgname=hml-neofetch
+pkgver=1.0
+pkgrel=2
+pkgdesc="Neofetch for Hatsune Miku Linux"
+url="https://github.com/HatsuneMikuLinux/PKGBUILDS"
+arch=('any')
+license=('GPL3')
+makedepends=()
+depends=()
+conflicts=('neofetch')
+provides=('neofetch')
+options=(!strip !emptydirs)
+
+source=('neofetch')
+
+sha256sums=('d8b6b482c484ef2169ed7f206a1d3363a8b4807c28c11d5a64f6464e946ad55d')
+
+package() {
+	install -Dm 755 neofetch   		${pkgdir}/usr/bin/neofetch
+}
