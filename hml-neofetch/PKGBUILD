@@ -1,7 +1,7 @@
 # Maintainer: LordDemecrius83 <lorddemecrius83@proton.me>
 
 pkgname=hml-neofetch
-pkgver=1.0
+pkgver=7.1.0
 pkgrel=2
 pkgdesc="Neofetch for Hatsune Miku Linux"
 url="https://github.com/HatsuneMikuLinux/PKGBUILDS"
