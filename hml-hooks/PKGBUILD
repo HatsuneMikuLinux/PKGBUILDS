@@ -2,7 +2,7 @@
 
 pkgname=hml-hooks
 pkgver=1.0
-pkgrel=2
+pkgrel=3
 pkgdesc='Hatsune Miku Linux pacman hooks'
 arch=('any')
 license=('GPL3')

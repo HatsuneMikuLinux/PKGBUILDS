@@ -26,6 +26,7 @@ Os_release() {
         -e "s|^LOGO=.*$|LOGO=hml-logo|" \
         -e "s|^ID=.*$|ID=hml|" \
         -e "s|^ID_LIKE=.*$|ID_LIKE=arch|"
+        -e "s|^HOME_URL=.*$|HOME_URL=https\:\/\/github.com\/HatsuneMikuLinux|" \
 
     if [ -z "$(grep "^ID_LIKE=" $file)" ] && [ -n "$(grep "^ID=" $file)" ] ; then
         # add missing ID_LIKE=
@@ -65,8 +66,10 @@ Main()
     case "$hookname" in
         os-release)  Os_release ;;
         lsb-release) Lsb_release ;;
+        pixmaps)     Pixmaps ;;
         "")          Os_release
                      Lsb_release
+                     Pixmaps
                      Issues
                      ;;
     esac
