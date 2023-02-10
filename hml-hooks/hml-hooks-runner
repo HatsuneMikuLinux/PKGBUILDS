@@ -25,8 +25,8 @@ Os_release() {
         -e 's|^PRETTY_NAME=.*$|PRETTY_NAME=\"Hatsune Miku Linux\"|' \
         -e "s|^LOGO=.*$|LOGO=hml-logo|" \
         -e "s|^ID=.*$|ID=hml|" \
-        -e "s|^ID_LIKE=.*$|ID_LIKE=arch|"
-        -e "s|^HOME_URL=.*$|HOME_URL=https\:\/\/github.com\/HatsuneMikuLinux|" \
+        -e "s|^ID_LIKE=.*$|ID_LIKE=arch|" \
+        -e "s|^HOME_URL=.*$|HOME_URL=https\:\/\/github.com\/HatsuneMikuLinux|"
 
     if [ -z "$(grep "^ID_LIKE=" $file)" ] && [ -n "$(grep "^ID=" $file)" ] ; then
         # add missing ID_LIKE=
